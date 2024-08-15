@@ -1,18 +1,22 @@
-class Cache: 
+from abc import ABC, abstractmethod
+import random
+
+class Cache(ABC): 
     """
     Template class for a Cache
     """
     def __init__(self, cache_size=10):
-        self.cache = []*cache_size
+        """
+        Initialize cache with random integers
+        """
+        self.cache = [random.randint(0, 99) for i in range(cache_size)]
+        self.cache_size = cache_size
 
-    def get(element): 
-        return True
+    @abstractmethod
+    def get(self, element: str) -> bool: 
+        pass
 
-    def flush():
-        return True
+    @abstractmethod
+    def flush(self):
+        pass
     
-    def __add():
-        return True
-    
-    def __evict():
-        return True
